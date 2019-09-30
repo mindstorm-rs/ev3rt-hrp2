@@ -482,9 +482,7 @@ unsigned int IntMasterStatusGet(void)
 {
     return CPUIntStatus();
 }
-
-
-
+#endif
 
 /**
  * \brief Read and save the stasus and Disables the processor IRQ .
@@ -500,15 +498,9 @@ unsigned int IntMasterStatusGet(void)
 
 unsigned char IntDisable(void)
 {
-	unsigned char status;
-
-	/* Reads the current status.*/
-	status = (IntMasterStatusGet() & 0xFF);
-
-	/* Disable the Interrupts.*/
-	IntMasterIRQDisable();
-
-	return status;
+    SIL_PRE_LOC;
+    SIL_LOC_INT();
+    return TOPPERS_irq_fiq_mask;
 }
 
 /**
@@ -525,14 +517,9 @@ unsigned char IntDisable(void)
 
 void IntEnable(unsigned char  status)
 {
-  
-	if((status & 0x80) == 0) 
-	{
-		IntMasterIRQEnable();
-	} 
+    uint32_t TOPPERS_irq_fiq_mask = status;
+    SIL_UNL_INT();
 }
-
-#endif
 
 
 /********************************** End Of File ******************************/
