@@ -6,7 +6,7 @@
 	url = https://github.com/ev3rt-git/usblib.git
 [submodule "sdk"]
 	path = sdk
-	url = git@github.com:mindstorm-rs/ev3rt-hrp2-sdk.git
+	url = https://github.com/mindstorm-rs/ev3rt-hrp2-sdk
 	branch = add-lego-nxt-ultrasonic-sensor
 [submodule "mbed-on-toppers"]
 	path = modules/mbed-on-toppers
