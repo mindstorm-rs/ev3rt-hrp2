@@ -834,6 +834,13 @@ serial_get_chr(ID portid, char *p_c)
 	return(false);
 }
 
+ER_UINT
+extsvc_serial_get_chr(intptr_t portid, intptr_t p_c, intptr_t par3,
+							intptr_t par4, intptr_t par5, ID cdmid)
+{
+	return((ER_UINT) serial_get_chr((ID) portid, (char *) p_c));
+}
+
 /*
  *  シリアルインタフェースドライバを拡張サービスコールとして登録するた
  *  めの定義

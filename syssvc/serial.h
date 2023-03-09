@@ -57,6 +57,10 @@ extern "C" {
 /*
  *  シリアルインタフェースドライバの拡張サービスコールのスタックサイズ
  */ 
+#ifndef SSZ_SERIAL_GET_CHR
+#define SSZ_SERIAL_GET_CHR	1024
+#endif /* SSZ_SERIAL_GET_CHR */
+
 #ifndef SSZ_SERIAL_OPN_POR
 #define SSZ_SERIAL_OPN_POR	1024
 #endif /* SSZ_SERIAL_OPN_POR */
@@ -104,6 +108,12 @@ extern bool_t	serial_get_chr(ID portid, char *p_c) throw();
  *  タフェース
  */
 #ifndef TOPPERS_SVC_CALL
+
+Inline bool_t
+serial_get_char(ID portid, char *p_c)
+{
+	return((bool_t) cal_svc(TFN_SERIAL_GET_CHR, (intptr_t) portid, (intptr_t) p_c, 0, 0, 0));
+}
 
 Inline ER
 serial_opn_por(ID portid)
@@ -175,6 +185,10 @@ extern ER		_serial_ref_por(ID portid,
 						_serial_ref_por(porid, pk_rpor, TDOM_KERNEL)
 
 #endif /* TOPPERS_SVC_CALL */
+
+extern ER_UINT	extsvc_serial_get_chr(intptr_t portid, intptr_t par2,
+									intptr_t par3, intptr_t par4,
+									intptr_t par5, ID cdmid) throw();
 
 /*
  *  シリアルインタフェースドライバを拡張サービスコールとして登録するた

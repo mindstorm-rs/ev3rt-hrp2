@@ -56,6 +56,7 @@
 /*
  *  シリアルインタフェースドライバ
  */
+#define TFN_SERIAL_GET_CHR		(6)
 #define TFN_SERIAL_OPN_POR		(7)
 #define TFN_SERIAL_CLS_POR		(8)
 #define TFN_SERIAL_REA_DAT		(9)
