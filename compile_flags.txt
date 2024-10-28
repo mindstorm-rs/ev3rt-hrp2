@@ -1,0 +1,4 @@
+-I/mnt/data/massi/massi/bots/mindstorm-rs/ev3rt-hrp2/include
+-I/mnt/data/massi/massi/bots/mindstorm-rs/ev3rt-hrp2/target/ev3_gcc
+-I/mnt/data/massi/massi/bots/mindstorm-rs/ev3rt-hrp2/arch/arm_gcc/am1808/chip_stddef.h
+-I/mnt/data/massi/massi/bots/mindstorm-rs/ev3rt-hrp2/target/ev3_gcc/target_stddef.h
