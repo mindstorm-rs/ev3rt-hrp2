@@ -70,6 +70,7 @@ static void initialize(intptr_t unused) {
     for(int i = 0; i < TNUM_OUTPUT_PORT; ++i) {
         driver_data_motor[i].speed = &(pMotor[i].Speed);
         driver_data_motor[i].tachoSensor = (int32_t*)&(pMotor[i].TachoSensor);
+        driver_data_motor[i].tachoTicks = (uint32_t*)&(pMotor[i].TachoTicks);
     }
     global_brick_info.motor_data = driver_data_motor;
     global_brick_info.motor_ready = &ReadyStatus;

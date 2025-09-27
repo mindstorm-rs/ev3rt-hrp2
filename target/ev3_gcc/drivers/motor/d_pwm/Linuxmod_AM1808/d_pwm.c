@@ -1559,6 +1559,7 @@ static enum hrtimer_restart Device1TimerInterrupt1(struct hrtimer *pTimer)
     pMotor[No].TachoCounts   =  Motor[No].TachoCnt;
     pMotor[No].Speed         =  Motor[No].Speed;
     pMotor[No].TachoSensor   =  Motor[No].TachoSensor;
+    pMotor[No].TachoTicks    =  TachoSamples[No].TachoArray[TachoSamples[No].ArrayPtr];
 
     Motor[No].TimeCnt       +=  Motor[No].TimeInc;  // Add or sub so that TimerCnt is 1 mS resolution
 
@@ -2309,6 +2310,7 @@ static ssize_t Device1Write(struct file *File,const char *Buffer,size_t Count,lo
           pMotor[Tmp].TachoCounts  =  0;
           Motor[Tmp].TimeCnt       =  0;
           pMotor[Tmp].TachoSensor  =  0;
+          pMotor[Tmp].TachoTicks   =  0;
           Motor[Tmp].TachoSensor   =  0;
           Motor[Tmp].Mutex         =  FALSE;
         }
@@ -2345,6 +2347,7 @@ static ssize_t Device1Write(struct file *File,const char *Buffer,size_t Count,lo
         {
           Motor[Tmp].Mutex         =  TRUE;
           pMotor[Tmp].TachoSensor  =  0;
+          pMotor[Tmp].TachoTicks   =  0;
           Motor[Tmp].TachoSensor   =  0;
           Motor[Tmp].Mutex         =  FALSE;
         }

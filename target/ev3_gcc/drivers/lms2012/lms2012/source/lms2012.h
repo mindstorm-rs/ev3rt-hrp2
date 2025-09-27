@@ -1344,6 +1344,7 @@ typedef struct
   SLONG TachoCounts;
   SBYTE Speed;
   SLONG TachoSensor;
+  ULONG TachoTicks;
 }MOTORDATA;
 
 typedef struct

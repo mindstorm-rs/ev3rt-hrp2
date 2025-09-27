@@ -97,8 +97,9 @@ typedef struct {
  */
 
 typedef struct {
-	volatile int8_t  *speed;       //!< Speed, range from -100 to +100
-    volatile int32_t *tachoSensor; //!< Angular position (rotary encoder)
+	volatile int8_t   *speed;       //!< Speed, range from -100 to +100
+    volatile int32_t  *tachoSensor; //!< Angular position (rotary encoder)
+    volatile uint32_t *tachoTicks;  //!< Last update time of tachoSensor
 } motor_data_t;
 
 /**
